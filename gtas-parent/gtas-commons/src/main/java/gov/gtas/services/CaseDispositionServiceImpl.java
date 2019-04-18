@@ -716,7 +716,6 @@ public class CaseDispositionServiceImpl implements CaseDispositionService {
 		aCase.getFlight().setAddress(null);
 		aCase.getFlight().setCreditCard(null);
 		aCase.getFlight().setPhone(null);
-		aCase.getFlight().setBookingDetails(null);
 		vo.setHitsDispositionVos(returnHitsDisposition(aCase.getHitsDispositions()));
 		vo.setGeneralCaseCommentVos(convertCommentsToVo(aCase.getCaseComments()));
 		CaseDispositionServiceImpl.copyIgnoringNullValues(aCase, vo);
@@ -734,7 +733,6 @@ public class CaseDispositionServiceImpl implements CaseDispositionService {
 		aCase.getFlight().setAddress(null);
 		aCase.getFlight().setCreditCard(null);
 		aCase.getFlight().setPhone(null);
-		aCase.getFlight().setBookingDetails(null);
 		vo.setGeneralCaseCommentVos(convertCommentsToVo(aCase.getCaseComments()));
 		CaseDispositionServiceImpl.copyIgnoringNullValues(aCase, vo);
 		vo.setHitsDispositions(null);
