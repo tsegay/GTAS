@@ -8,6 +8,15 @@
     app
         .service("dashboardService", function ($rootScope, $http, $q) {
 
+        	function getDefaultDashboard(){
+    		  var dfd = $q.defer();
+              dfd.resolve($http({
+                  method: 'get',
+                  url: '/gtas/kibana/defaultDashboard'
+              }));
+              return dfd.promise;	
+        	}
+        	
             function getFlightsAndPassengersAndHitsCount(startDate, endDate) {
                 var dfd = $q.defer();
                 dfd.resolve($http({
@@ -97,7 +106,8 @@
                 getFlightsAndPassengersAndHitsCountOutbound: getFlightsAndPassengersAndHitsCountOutbound,
                 getMessagesCount: getMessagesCount,
                 getYtdAirportStats: getYtdAirportStats,
-                getYtdRulesCount: getYtdRulesCount
+                getYtdRulesCount: getYtdRulesCount,
+                getDefaultDashboard: getDefaultDashboard
 
             });
         });

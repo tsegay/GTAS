@@ -7,10 +7,13 @@
 (function () {
     'use strict';
     app.controller('DashboardController',
-        function ($state, $scope, $rootScope, $q, $stateParams, dashboardService, $mdToast, sampleData, ytdRuleHits, ytdAirportStats) {
+        function ($state, $scope, $rootScope, $q, $stateParams, dashboardService, $mdToast, sampleData, ytdRuleHits, ytdAirportStats, $sce) {
             var stubChartData = [[], []];
             $scope.colors = ['#337ab7', '#5cb85c', '#dfdfdf'];
             $scope.data = [[], []];
+
+            $scope.dahsboardURL = $sce.trustAsResourceUrl("http://localhost:8080/gtas/defaultDashboard");
+
             $scope.datasetOverride = [
                 {
                     label: "APIs",

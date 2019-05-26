@@ -51,7 +51,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 				"/watchlists/**/*", "/build/**/*", "/dashboard/**/*",
 				"/dist/**/*", "/jqb/**/*", "/userSettings/**/*", "/cases/**/*","/onedaylookout/**/*","/userlocation/**/*",
 				"/resources/**", "/common/**/*", "/login/**", "/admin/**","/flightdirectionlist/**/*",
-				"/app.js", "WEB-INF/**/*", "/data/**");
+				"/app.js", "WEB-INF/**/*", "/data/**", "/bundles/**/*");
 	}
 
 	@Autowired
@@ -75,7 +75,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers("/resources/*/**", "/resources/**/*",
 						"/resources/**", "/common/**", "/login/**",
-						"/authenticate")
+						"/authenticate","/bundles/*/**")
 				.permitAll()
 				.anyRequest()
 				.authenticated()
@@ -102,6 +102,8 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 			LOGGER.info("launching the application in HTTPS-only mode");
 			http.requiresChannel().anyRequest().requiresSecure();
 		}
+		
+		http.headers().frameOptions().disable();
 	}
 
 	/**

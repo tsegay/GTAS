@@ -645,6 +645,8 @@ var app;
                 });               
 
             $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+            $httpProvider.defaults.headers.common['X-Frame-Options'] = 'ALLOW';
+            
             $httpProvider.defaults.withCredentials = false;
         },
 
