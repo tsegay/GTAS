@@ -3,6 +3,7 @@
     sudo yum install git, wget, maven -y
 ### Configuration
 
+
   Configuration files can be found at `GTAS/gtas-parent/scripts/elastic/config/*`. 
 
 ### Installation
