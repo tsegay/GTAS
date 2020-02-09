@@ -4,7 +4,10 @@ pipeline {
     stage('Build Assets') {
       steps {
         echo 'Start Build Step'
-        sh 'mvn clean install -Dlicense.skip=true -Dskip.unit.tests=true'
+        dir(path: 'gtas-parent') {
+          sh 'mvn clean install -Dlicense.skip=true -Dskip.unit.tests=true'
+        }
+
         echo 'Build Step Complete'
       }
     }
