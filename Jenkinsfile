@@ -17,7 +17,6 @@ pipeline {
         stage('Print build number') {
           steps {
             echo "This is build number ${BUILD_ID}"
-            sleep 20
           }
         }
 
