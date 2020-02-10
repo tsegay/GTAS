@@ -1,11 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('Build Assets') {
+    stage('Build and Sonar Qube analysis') {
       steps {
         echo 'Start Build Step'
         dir(path: 'gtas-parent') {
-          sh 'mvn clean install -Dlicense.skip=true -Dskip.unit.tests=true'
+          sh 'mvn clean package sonar:sonar -Dlicense.skip=true -Dskip.unit.tests=true'
         }
 
         echo 'Build Step Complete'
