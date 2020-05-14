@@ -7,7 +7,6 @@ pipeline {
         dir(path: 'gtas-parent') {
           sh 'mvn clean package sonar:sonar -Dlicense.skip=true -Dskip.unit.tests=true'
         }
-
         echo 'Build Step Complete'
       }
     }
