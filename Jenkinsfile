@@ -16,7 +16,7 @@ pipeline {
       parallel {
         stage('Print build number') {
           steps {
-            echo "Build Number ${BUILD_ID}"
+            echo "Build Number: ${BUILD_ID}"
           }
         }
 
