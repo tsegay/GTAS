@@ -9,7 +9,9 @@ pipeline {
       steps {
         echo 'Start Build Step'
         dir(path: 'gtas-parent') {
-          sh 'mvn clean package sonar:sonar -Dlicense.skip=true -Dskip.unit.tests=true'
+          withSonarQubeEnv('SonarQube') {
+            sh 'mvn clean package sonar:sonar -Dlicense.skip=true -Dskip.unit.tests=true'
+          }
         }
         echo 'Build Step Complete'
       }
